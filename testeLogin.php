@@ -35,16 +35,25 @@ session_start(); // Iniciar a sessão se ainda não foi feita
                     $_SESSION['senha'] = $hash_senha;
                     $_SESSION['$result'] = $result;
 
+                    $_SESSION['tipoUsuario'] = $row['permissao'];
+
                     foreach($result as $linha){
                         $_SESSION['nome'] = $linha['nome'];
                     }
-        
-                    header('Location: sistema.php');
+                    
+                    if ($row['permissao'] == "Administrador"){
+                        header('Location: admin.php');
+                    } else if ($row['permissao'] == "Tecnico"){
+                        header('Location: sistemaProduto.php');
+                    } else if($row['permissao'] == "Cliente"){
+                        header('Location: sistemaProdutoCliente.php');
+                    }
+                    
                     // header('Location: SistemaProduto.php');
                 
                     //echo 'Login bem-sucedido!';
                 } else {
-                    header('Location: home.php');
+                    header('Location: login.php');
                     // var_dump(password_verify('123', '$2y$10$NpXFmgGt9zrG9KNSkOGe0.y1k70eAftutF79Wq'));
                     // echo 'Senha incorreta!';
                     // echo "<br><br>";
@@ -65,7 +74,7 @@ session_start(); // Iniciar a sessão se ainda não foi feita
                     // print_r($hash_senha);
                 }
             } else {
-                header('Location: home.php');
+                header('Location: login.php');
             }
         
 
@@ -75,8 +84,10 @@ session_start(); // Iniciar a sessão se ainda não foi feita
         } else {
             echo 'Por favor, forneça CPF e senha.';
         }
-    } else {
-        echo 'Usuário já está autenticado ou a requisição é inválida.';
+    } 
+    else 
+    {
+        header('Location: login.php');
     }
 
 ?>

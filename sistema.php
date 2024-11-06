@@ -1,14 +1,14 @@
 <?php
     session_start();
     include_once('config.php');
+
     // print_r($_SESSION);
-    // if((!isset($_SESSION['cpf']) == true) and (!isset($_SESSION['senha']) == true))
-    if (!isset($_SESSION['cpf']) && !isset($_SESSION['senha']) && isset($_SESSION['senha']) && !password_verify($senha, $_SESSION['senha']))
+    //if((!isset($_SESSION['cpf']) == true) and (!isset($_SESSION['senha']) == true))
+    if (!isset($_SESSION['cpf']) || !isset($_SESSION['senha']) )
     
     {
         unset($_SESSION['cpf']);
         unset($_SESSION['senha']);
-        
         header('Location: login.php');
     }
     $logado = $_SESSION['nome'];
@@ -60,7 +60,8 @@
             </button>
         </div>
         <div class="d-flex">
-            <a href="sair.php" class="btn btn-danger me-5">Sair</a>
+            <!-- <a href="admin.php" class="btn btn-info me-2">Voltar</a> -->
+            <a href="sair.php" class="btn btn-danger me-2">Sair</a>
         </div>
     </nav>
     <br>

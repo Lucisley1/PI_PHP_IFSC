@@ -186,15 +186,17 @@ if (!empty($_GET['id'])) {
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <!-- <input type="text" name="permissao" id="permissao" class="inputUser" value="<?php echo $permissao ?>" required>  -->
+                    <!-- <input type="text" name="permissao" id="permissao" class="inputUser" value="<?php echo $permissao ?>" required> -->
+                    
                     <label for="permissao" class="labelInput">Permissao</label>
-                    <br>
                     <select name="permissao" id="permissao" value="<?php echo $permissao ?>" required>
                         <option value=" ">Selecione</option>
-                        <option id="permissao" value="Admistrador">Admistrador</option>
-                        <option id="permissao" value="Tecnico">Tecnico</option>
-                        <option id="permissao" value="Cliente">Cliente</option>
+                        <option name="permissao" id="permissao" value="Admistrador">Admistrador</option>
+                        <option name="permissao" id="permissao" value="Tecnico">Tecnico</option>
+                        <option name="permissao" id="permissao" value="Cliente">Cliente</option>
                     </select>
+                    <br>
+                    
                 </div>
                 <br><br>
                 <input type="hidden" name="id" value="<?php echo $id?>">
