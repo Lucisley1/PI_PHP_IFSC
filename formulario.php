@@ -21,7 +21,7 @@
         $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,cpf,senha,email,telefone,sexo,data_nasc,cidade,estado,endereco,permissao) 
         VALUES ('$nome','$cpf','$senha','$email','$telefone','$sexo','$data_nasc','$cidade','$estado','$endereco','$permissao')");
 
-        header('Location: login.php');
+        header('Location: admin.php');
     }
 
 ?>
@@ -178,6 +178,7 @@
                     <br>
                     <select name="permissao">
                         <option value=" ">Selecione</option>
+                        <option value="Admistrador Master">Admistrador GM</option>
                         <option value="Admistrador">Admistrador</option>
                         <option value="Tecnico">Tecnico</option>
                         <option value="Cliente">Cliente</option>

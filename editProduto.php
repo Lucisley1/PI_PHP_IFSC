@@ -1,12 +1,12 @@
 <?php
-    session_start();
+
 if (!empty($_GET['id'])) {
     include_once('config.php');
 
     $id = intval($_GET['id']);  // Sanitização básica do ID
 
     // Uso de prepared statements para evitar SQL Injection
-    $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE id = ?");
+    $stmt = $conexao->prepare("SELECT * FROM produto WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -15,28 +15,26 @@ if (!empty($_GET['id'])) {
         $user_data = $result->fetch_assoc();
         
         $id = $user_data['id'];
-        $nome = $user_data['nome'];
-        $email = $user_data['email'];
-        $cpf = $user_data['cpf']; 
-        $senha = !empty($_POST['senha']) ? password_hash($_POST['senha'], PASSWORD_DEFAULT) : $user_data['senha'];
-        $telefone = $user_data['telefone'];
-        $sexo = $user_data['sexo'];
-        $data_nasc = $user_data['data_nasc'];
-        $cidade = $user_data['cidade'];
-        $estado = $user_data['estado'];
-        $endereco = $user_data['endereco'];
-        $permissao = $user_data['permissao'];
-        }
-
-    } else{
-        header('location: sistema.php');
+        $cpf = $user_data['cpf'];
+        $marca = $user_data['marca'];
+        $modelo = $user_data['modelo'];
+        $defeito = $user_data['defeito'];
+        $peca_defeito = $user_data['peca_defeito'];
+        $valor_peca = $user_data['valor_peca'];
+        $autorizacao = $user_data['autorizacao'];
+        $statuss = $user_data['statuss'];
+    } else {
+        header('location: sistemaProdutoCliente.php');
         exit();  // Certifique-se de encerrar o script após redirecionar
     }
 
     $stmt->close();
-  
+}    
+    else
+    {
+        header('location: sistemaProduto.php');
+    }
 
-   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,72 +123,60 @@ if (!empty($_GET['id'])) {
     <a href="SistemaProduto.php" class="btn btn-danger me-5">Voltar</a>
 </div>
     <div class="box">
-        <form action="saveEdit.php" method="POST">
+        <form action="saveEditProduto.php" method="POST">
             <fieldset>
-                <legend><b>Fórmulário de Clientes</b></legend>
-                <br><br>
-                <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" value="<?php echo $nome ?>" required>
-                    <label for="nome" class="labelInput">Nome completo</label>
-                </div>
+                <legend><b>Atualização de Produtos</b></legend>
                 <br><br>
                 <div class="inputBox">
                     <input type="text" name="cpf" id="cpf" class="inputUser" value="<?php echo $cpf ?>" required>
-                    <label for="cpf" class="labelInput">CPF</label>
+                    <label for="nome" class="labelInput">CPF</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="password" name="senha" id="senha" class="inputUser" value="<?php echo $senha ?>" required>
-                    <label for="senha" class="labelInput">Senha</label>
+                    <input type="text" name="marca" id="marca" class="inputUser" value="<?php echo $marca ?>" required>
+                    <label for="cpf" class="labelInput">Marca</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="text" name="email" id="email" class="inputUser" value="<?php echo $email ?>" required>
-                    <label for="email" class="labelInput">Email</label>
+                    <input type="text" name="modelo" id="modelo" class="inputUser" value="<?php echo $modelo ?>" required>
+                    <label for="modelo" class="labelInput">Modelo</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" value="<?php echo $telefone ?>" required>
-                    <label for="telefone" class="labelInput">Telefone</label>
+                    <input type="text" name="defeito" id="defeito" class="inputUser" value="<?php echo $defeito ?>" required>
+                    <label for="defeito" class="labelInput">Defeito</label>
                 </div>
-                <p>Sexo:</p>
-                <input type="radio" id="feminino" name="sexo" value="feminino" <?php echo ($sexo == 'feminino') ? 'checked': '';?> required>
-                <label for="feminino">Feminino</label>
+                <br><br>
+                <div class="inputBox">
+                    <input type="text" name="peca_defeito" id="peca_defeito" class="inputUser" value="<?php echo $peca_defeito ?>" required>
+                    <label for="peca_defeito" class="labelInput">Peça com defeito</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="text" name="valor_peca" id="valor_peca" class="inputUser" value="<?php echo $valor_peca ?>" required>
+                    <label for="valor_peca" class="labelInput">Valor da peça</label>
+                </div>
                 <br>
-                <input type="radio" id="masculino" name="sexo" value="masculino" <?php echo ($sexo == 'masculino') ? 'checked': '';?> required>
-                <label for="masculino">Masculino</label>
+                <p>Autorização:</p>
+                <input type="radio" id="autorizacao" name="autorizacao" value="sim" <?php echo ($autorizacao == 'sim') ? 'checked': '';?>>
+                <label for="sim">Sim</label>
                 <br>
-                <input type="radio" id="outro" name="sexo" value="outro" <?php echo ($sexo == 'outro') ? 'checked': '';?> required>
-                <label for="outro">Outro</label>
-                <br><br>
-                <label for="data_nascimento"><b>Data de Nascimento:</b></label>
-                <input type="date" name="data_nasc" id="data_nasc" value="<?php echo $data_nasc ?>" required>
-                <br><br><br>
-                <div class="inputBox">
-                    <input type="text" name="cidade" id="cidade" class="inputUser" value="<?php echo $cidade ?>" required>
-                    <label for="cidade" class="labelInput">Cidade</label>
-                </div>
-                <br><br>
-                <div class="inputBox">
-                    <input type="text" name="estado" id="estado" class="inputUser" value="<?php echo $estado ?>" required>
-                    <label for="estado" class="labelInput">Estado</label>
-                </div>
-                <br><br>
-                <div class="inputBox">
-                    <input type="text" name="endereco" id="endereco" class="inputUser" value="<?php echo $endereco ?>" required>
-                    <label for="endereco" class="labelInput">Endereço</label>
-                </div>
-                <br><br>
+                <input type="radio" id="autorizacao" name="autorizacao" value="nao" <?php echo ($autorizacao == 'nao') ? 'checked': '';?>>
+                <label for="nao">Não</label>
+                <br><br>           
                 <div class="inputBox">
                     <!-- <input type="text" name="permissao" id="permissao" class="inputUser" value="<?php echo $permissao ?>" required> -->
                     
-                    <label for="permissao" class="labelInput">Permissao</label>
-                    <select name="permissao" id="permissao" value="<?php echo $permissao ?>" required>
+                    <label for="statuss" class="labelInput">statuss</label>
+                    <br>
+                    <select name="statuss" id="statuss" value="<?php echo $statuss ?>">
                         <option value=" ">Selecione</option>
-                        <option name="permissao" id="permissao" value="Admistrador GM">Admistrador GM</option>
-                        <option name="permissao" id="permissao" value="Admistrador">Admistrador</option>
-                        <option name="permissao" id="permissao" value="Tecnico">Tecnico</option>
-                        <option name="permissao" id="permissao" value="Cliente">Cliente</option>
+                        <option name="statuss" id="statuss" value="ANALISE">EM ANALISE</option>
+                        <option name="statuss" id="statuss" value="EM MANUTENCAO">EM MANUTENÇÃO</option>
+                        <option name="statuss" id="statuss" value="AGUARDANDO PECA">AGUARDANDO PEÇA</option>
+                        <option name="statuss" id="statuss" value="PRONTO">PRONTO</option>
+                        <option name="statuss" id="statuss" value="AGUARDANDO RETIRADA">AGUARDANDO RETIRADA</option>
+                        <option name="statuss" id="statuss" value="FINALIZADO">FINALIZADO</option>
                     </select>
                     <br>
                     

@@ -41,10 +41,12 @@ session_start(); // Iniciar a sessão se ainda não foi feita
                         $_SESSION['nome'] = $linha['nome'];
                     }
                     
-                    if ($row['permissao'] == "Administrador"){
+                    if ($row['permissao'] == "Administrador GM"){
+                        header('Location: admin.php');
+                    } else if ($row['permissao'] == "Administrador"){
                         header('Location: admin.php');
                     } else if ($row['permissao'] == "Tecnico"){
-                        header('Location: sistemaProduto.php');
+                        header('Location: sistemaProdutoTecnico.php');
                     } else if($row['permissao'] == "Cliente"){
                         header('Location: sistemaProdutoCliente.php');
                     }
