@@ -187,8 +187,8 @@ if (!empty($_GET['id'])) {
                     <label for="permissao" class="labelInput">Permissao</label>
                     <select name="permissao" id="permissao" value="<?php echo $permissao ?>" required>
                         <option value=" ">Selecione</option>
-                        <option name="permissao" id="permissao" value="Admistrador GM">Admistrador GM</option>
-                        <option name="permissao" id="permissao" value="Admistrador">Admistrador</option>
+                        <option name="permissao" id="permissao" value="Administrador GM">Administrador GM</option>
+                        <option name="permissao" id="permissao" value="Administrador">Administrador</option>
                         <option name="permissao" id="permissao" value="Tecnico">Tecnico</option>
                         <option name="permissao" id="permissao" value="Cliente">Cliente</option>
                     </select>

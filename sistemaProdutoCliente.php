@@ -147,13 +147,13 @@
                     }
 
                     
-                    echo 'Fora do Loop '.$idUser
+                    // echo 'Fora do Loop '.$idUser
                     
                     ?>
             </tbody>
         </table>
     </div>
-    <a href="editForm.php?id=$idUser" class="btn btn-info me-2">Trocar senha</a><? echo $user_data['id'] ?>
+    <a href="editForm.php?id=<?php echo $idUser; ?>" class="btn btn-info me-2">Trocar senha</a>
     
 </body>
 <script>

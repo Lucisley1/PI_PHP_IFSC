@@ -178,8 +178,8 @@
                     <br>
                     <select name="permissao">
                         <option value=" ">Selecione</option>
-                        <option value="Admistrador Master">Admistrador GM</option>
-                        <option value="Admistrador">Admistrador</option>
+                        <option value="Administrador GM">Administrador GM</option>
+                        <option value="Administrador">Administrador</option>
                         <option value="Tecnico">Tecnico</option>
                         <option value="Cliente">Cliente</option>
                     </select>
