@@ -23,7 +23,7 @@
         } else if($_SESSION['tipoUsuario'] == "Administrador" || $_SESSION['tipoUsuario'] == "Administrador GM"){
             $sql = "SELECT * FROM produto WHERE marca LIKE '%$data%' or cpf LIKE '%$data%' ORDER BY id DESC";
         }else {
-            $sql = "SELECT * FROM produto WHERE marca LIKE '%$data%' or cpf LIKE '%$data%' ORDER BY id DESC";
+            $sql = "SELECT * FROM produto WHERE marca LIKE '%$data%' or cpf LIKE '%$data%' or statuss LIKE '%$data%' ORDER BY id DESC";
         }
 
     }

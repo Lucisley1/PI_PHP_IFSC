@@ -93,3 +93,5 @@ session_start(); // Iniciar a sessão se ainda não foi feita
     }
 
 ?>
+
+<!-- 2011 linhas feito ao todo -->
