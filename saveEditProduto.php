@@ -36,8 +36,11 @@
             $autorizacao = $_POST['autorizacao'];
             $statuss = $_POST['statuss'];
 
-            $sqlUpdate = "UPDATE produto SET cpf='$cpf',marca='$marca',modelo='$modelo',defeito='$defeito',
-            peca_defeito='$peca_defeito',valor_peca='$valor_peca',autorizacao='$autorizacao',statuss='$statuss' WHERE id='$id'";
+            // $sqlUpdate = "UPDATE produto SET cpf='$cpf',marca='$marca',modelo='$modelo',defeito='$defeito',
+            // peca_defeito='$peca_defeito',valor_peca='$valor_peca',autorizacao='$autorizacao',statuss='$statuss',data=NOW(), garantia='NOW()+ INTERVAL 90 DAY' WHERE id='$id'";
+            $sqlUpdate = "
+            UPDATE produto SET cpf='$cpf',marca='$marca',modelo='$modelo',defeito='$defeito',peca_defeito='$peca_defeito',valor_peca='$valor_peca',
+            autorizacao='$autorizacao',statuss='$statuss',data=NOW(), garantia=NOW() + INTERVAL 90 DAY WHERE id='$id'";
 
             $result = $conexao->query($sqlUpdate);
         }

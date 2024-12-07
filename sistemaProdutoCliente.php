@@ -122,7 +122,7 @@
                 <!-- Dados do banco de dados passando o laço para listar todos os registros -->
                 <?php  
                     while($user_data = mysqli_fetch_assoc($result1)) {  
-                        $idUser = $user_data['id'];
+                        $idUser = $user_data['id_usuarios'];
 
                         echo "<tr>";
                         echo "<td>".$user_data['id']."</td>";
