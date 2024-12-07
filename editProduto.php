@@ -171,7 +171,8 @@ if (!empty($_GET['id'])) {
                     <br>
                     <select name="statuss" id="statuss" value="<?php echo $statuss ?>">
                         <option value=" ">Selecione</option>
-                        <option name="statuss" id="statuss" value="ANALISE">EM ANALISE</option>
+                        <option name="statuss" id="statuss" value="AGUARDANDO AUTORIZAÇÃO">AGUARDANDO AUTORIZAÇÃO</option>
+                        <option name="statuss" id="statuss" value="AUTORIZADO">AUTORIZADO</option>
                         <option name="statuss" id="statuss" value="EM MANUTENCAO">EM MANUTENÇÃO</option>
                         <option name="statuss" id="statuss" value="AGUARDANDO PECA">AGUARDANDO PEÇA</option>
                         <option name="statuss" id="statuss" value="PRONTO">PRONTO</option>

@@ -183,7 +183,8 @@
                         <option value=" ">SELECIONE</option>
                         <!-- <option value="AUTORIZADO">AUTORIZADO</option>
                         <option value="NÃO AUTORIZADO">NÃO AUTORIZADO</option> -->
-                        <option value="EM ANALISE">EM ANALISE</option>
+                        <option value="AGUARDANDO AUTORIZAÇÃO">AGUARDANDO AUTORIZAÇÃO</option>
+                        <option value="AUTORIZADO">AUTORIZADO</option>
                         <option value="EM MANUTENÇÃO">EM MANUTENÇÃO</option>
                         <option value="AGUARDANDO PEÇA">AGUARDANDO PEÇA</option>
                         <option value="PRONTO">PRONTO </option>

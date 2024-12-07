@@ -131,6 +131,12 @@ if (!empty($_GET['id'])) {
                 <br>
                 
                 <div class="inputBox">
+                    <label for="nome" class="labelInput">Numero da Ordem de Serviço</label>
+                    <br>
+                    <input type="text" name="id" id="id" class="inputUser" value="<?php echo $id ?>" disabled>
+                </div>
+                <br>
+                <div class="inputBox">
                     <label for="nome" class="labelInput">CPF</label>
                     <br>
                     <input type="text" name="cpf" id="cpf" class="inputUser" value="<?php echo $cpf ?>" disabled>
