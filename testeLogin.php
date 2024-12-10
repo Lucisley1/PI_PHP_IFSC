@@ -31,6 +31,9 @@ session_start(); // Iniciar a sessão se ainda não foi feita
             
                 if (password_verify($_POST['senha'], $hash_senha)) {
                     // Login bem-sucedido: definir variáveis de sessão
+                    $_SESSION["erroLogin"] = false;
+
+
                     $_SESSION['cpf'] = $cpf;
                     $_SESSION['senha'] = $hash_senha;
                     $_SESSION['$result'] = $result;
@@ -55,6 +58,7 @@ session_start(); // Iniciar a sessão se ainda não foi feita
                 
                     //echo 'Login bem-sucedido!';
                 } else {
+                    $_SESSION["erroLogin"] = true;
                     header('Location: login.php');
                     // var_dump(password_verify('123', '$2y$10$NpXFmgGt9zrG9KNSkOGe0.y1k70eAftutF79Wq'));
                     // echo 'Senha incorreta!';
@@ -76,6 +80,7 @@ session_start(); // Iniciar a sessão se ainda não foi feita
                     // print_r($hash_senha);
                 }
             } else {
+                $_SESSION["erroLogin"] = true;
                 header('Location: login.php');
             }
         

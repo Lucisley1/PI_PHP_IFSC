@@ -106,7 +106,7 @@
         <table class="table text-white table-bg"> 
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Nº O.S</th>
                     <th scope="col">CPF</th>
                     <th scope="col">Marca</th>
                     <th scope="col">Modelo</th>
@@ -114,7 +114,7 @@
                     <th scope="col">Peça Defeito</th>
                     <th scope="col">Valor da Peça</th>
                     <th scope="col">Autorização*</th>
-                    <!-- <th scope="col">Status</th> -->
+                    <th scope="col">Status</th>
                     <th scope="col">...</th>
                 </tr>
             </thead>
@@ -133,7 +133,7 @@
                         echo "<td>".$user_data['peca_defeito']."</td>";
                         echo "<td>".$user_data['valor_peca']."</td>";
                         echo "<td>".$user_data['autorizacao']."</td>";
-                        // echo "<td>".$user_data['statuss']."</td>";
+                        echo "<td>".$user_data['statuss']."</td>";
                         echo "<td>
                              <a class='btn btn-sm btn-primary' href='editProduto.php?id=$user_data[id]' title='Editar'>
                                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>

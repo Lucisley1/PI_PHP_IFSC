@@ -1,5 +1,13 @@
 <?php
+    session_start();
 
+
+    if (!isset($_SESSION['tipoUsuario'])){
+        header('Location: login.php');
+    }if ($_SESSION['tipoUsuario'] != "Administrador GM" && $_SESSION['tipoUsuario'] != "Administrador" ){
+        header('Location: login.php');
+    }
+    
 if (!empty($_GET['id'])) {
     include_once('config.php');
 

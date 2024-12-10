@@ -1,5 +1,11 @@
 <?php
     session_start();
+    if (!isset($_SESSION['tipoUsuario'])){
+        header('Location: login.php');
+    }if ($_SESSION['tipoUsuario'] != "Administrador GM" && $_SESSION['tipoUsuario'] != "Tecnico" ){
+        header('Location: login.php');
+    }
+
     include_once('config.php');
     // // print_r($_SESSION);
     // // if((!isset($_SESSION['cpf']) == true) and (!isset($_SESSION['senha']) == true))

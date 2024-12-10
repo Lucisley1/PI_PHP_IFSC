@@ -69,6 +69,12 @@
             <!-- <input type="password" name="verified" placeholder="Senha"> -->
             <br><br>
             <input class="InputSubmit" type="submit" name="submit" value="Acessar">
+
+            <?php
+                session_start(); // Iniciar a sessão se ainda não foi feita
+                if (isset($_SESSION["erroLogin"]) AND $_SESSION["erroLogin"] == true) {echo "<p>CPF ou senha incorreta.</p>"; }
+                $_SESSION["erroLogin"] = false;
+            ?>
             <!-- <button>Entrar</button> -->
         </form>
     </div> 
