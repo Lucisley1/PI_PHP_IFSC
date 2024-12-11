@@ -56,7 +56,7 @@
             </button>
         
             
-            <a href="sair.php" class="btn btn-danger me-2">Sair</a>
+            <a href="sair.php" class="btn btn-danger me-2">Encerrar Seção</a>
         </div_>
     </nav>
     <div>

@@ -180,11 +180,12 @@ if (!empty($_GET['id'])) {
                     <input type="text" name="endereco" id="endereco" class="inputUser" value="<?php echo $endereco ?>" required>
                     <label for="endereco" class="labelInput">Endereço</label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputBox">
                     <!-- <input type="text" name="permissao" id="permissao" class="inputUser" value="<?php echo $permissao ?>" required> -->
                     
                     <label for="permissao" class="labelInput">Permissao</label>
+                    <br>
                     <select name="permissao" id="permissao" value="<?php echo $permissao ?>" required>
                         <option value=" ">Selecione</option>
                         <option name="permissao" id="permissao" value="Administrador GM">Administrador GM</option>

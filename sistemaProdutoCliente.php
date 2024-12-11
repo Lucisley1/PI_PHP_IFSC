@@ -154,6 +154,8 @@
         </table>
     </div>
     <a href="editForm.php?id=<?php echo $idUser; ?>" class="btn btn-info me-2">Trocar senha</a>
+    <br><br>
+    <p>Em caso de duvidas entrar em contato com suporte: merv@gmail.com ou WhatsApp (49) 99999-9999</p>
     
 </body>
 <script>

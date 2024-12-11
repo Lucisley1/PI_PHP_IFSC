@@ -110,7 +110,7 @@
         <table class="table text-white table-bg"> 
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Nº O.S</th>
                     <th scope="col">CPF</th>
                     <th scope="col">Marca</th>
                     <th scope="col">Modelo</th>

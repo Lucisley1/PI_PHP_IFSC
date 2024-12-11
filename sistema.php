@@ -24,7 +24,8 @@
     if(!empty($_GET['search']))
     {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or cpf LIKE '%$data%' ORDER BY id DESC";
+        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or cpf LIKE '%$data%' 
+        or permissao LIKE '%$data%' ORDER BY id DESC";
     }
     else
     {
@@ -74,7 +75,7 @@
             </button>
         </div>
         <div class="d-flex">
-            <!-- <a href="admin.php" class="btn btn-info me-2">Voltar</a> -->
+            <a href="admin.php" class="btn btn-info me-2">Voltar</a>
             <a href="sair.php" class="btn btn-danger me-2">Sair</a>
         </div>
     </nav>

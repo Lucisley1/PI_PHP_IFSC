@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
 if (!empty($_GET['id'])) {
     include_once('config.php');
@@ -120,7 +121,16 @@ if (!empty($_GET['id'])) {
 <body>
 <div> 
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous'>
-    <a href="SistemaProduto.php" class="btn btn-danger me-5">Voltar</a>
+    <?php
+        if ($_SESSION['tipoUsuario'] == "Administrador GM" || $_SESSION['tipoUsuario'] == "Administrador" ){
+            echo '<a href="SistemaProduto.php" class="btn btn-danger me-5">Voltar</a>';
+        }
+        if ($_SESSION['tipoUsuario'] == "Tecnico"  ){
+            echo '<a href="SistemaProdutoTecnico.php" class="btn btn-danger me-5">Voltar</a>';
+        }if ($_SESSION['tipoUsuario'] == "Cliente"  ){
+            echo '<a href="SistemaProdutoCliente.php" class="btn btn-danger me-5">Voltar</a>';
+        }
+    ?>
 </div>
     <div class="box">
         <form action="saveEditProduto.php" method="POST">

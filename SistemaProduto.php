@@ -28,7 +28,8 @@
          if ($_SESSION['tipoUsuario'] == "Cliente"){
             $sql = "SELECT * FROM produto WHERE marca LIKE '%$data%' or cpf=".$_SESSION['cpf']." ORDER BY id DESC";
         } else if($_SESSION['tipoUsuario'] == "Administrador" || $_SESSION['tipoUsuario'] == "Administrador GM"){
-            $sql = "SELECT * FROM produto WHERE marca LIKE '%$data%' or cpf LIKE '%$data%' ORDER BY id DESC";
+            $sql = "SELECT * FROM produto WHERE marca LIKE '%$data%' or cpf LIKE '%$data%' or autorizacao LIKE '%$data%' 
+            or statuss LIKE '%$data%' ORDER BY id DESC";
         }else {
             $sql = "SELECT * FROM produto WHERE marca LIKE '%$data%' or cpf LIKE '%$data%' ORDER BY id DESC";
         }
@@ -89,7 +90,7 @@
             </button>
         </div>
         <div class="d-flex">
-        <!-- <a href="admin.php" class="btn btn-info me-2">Voltar</a> -->
+        <a href="admin.php" class="btn btn-info me-2">Voltar</a>
         <a href="sair.php" class="btn btn-danger me-2">Sair</a>
         </div>
     </nav>
@@ -115,7 +116,7 @@
         <table class="table text-white table-bg"> 
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Nº O.S</th>
                     <th scope="col">CPF</th>
                     <th scope="col">Marca</th>
                     <th scope="col">Modelo</th>

@@ -7,7 +7,7 @@
     }if ($_SESSION['tipoUsuario'] != "Administrador GM" && $_SESSION['tipoUsuario'] != "Administrador" ){
         header('Location: login.php');
     }
-    
+
 if (!empty($_GET['id'])) {
     include_once('config.php');
 
@@ -198,6 +198,7 @@ if (!empty($_GET['id'])) {
                     <input type="text" name="garantia" id="garantia" class="inputUser" value="<?php echo $garantia ?>" disabled>
                 </div>
                 <br>
+            
                 <!-- <p>Autorização:</p>
                 <input type="radio" id="autorizacao" name="autorizacao" value="sim" <?php echo ($autorizacao == 'sim') ? 'checked': '';?>>
                 <label for="sim">Sim</label>
@@ -225,6 +226,7 @@ if (!empty($_GET['id'])) {
                 
                 <input type="hidden" name="id" value="<?php echo $id?>">
                 <!-- <input type="submit" name="update" id="update" value="Atualizar"> -->
+                 <p>ESTA GARANTIA CONTEMPLA APENAS DEFEITO REFERENTE A PEÇA SUBSTITUIDA</p>
                 <form onsubmit="abrirImpressao(event)">
   <button type="submit">Imprimir</button>
 </form>
